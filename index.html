@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4928637104063209"
+     crossorigin="anonymous"></script>
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M5HJMBNG');
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중도금 대출 이자 계산기</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="google-site-verification" content="M0fpVw0p1o8uNtRhyk-c_rD4qqg2zHq2RvDkl0eaZOg" />
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5HJMBNG" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="container">
+        <h1>중도금 대출 이자 계산기</h1>
+        <div class="input-section">
+            <label>총 분양가: <input type="text" id="totalAmount" placeholder="예: 892,200,000" onfocus="this.placeholder=''" onblur="this.placeholder='예: 892,200,000'" oninput="formatCurrency(this)" title=""></label>
+            <label>회차별 중도금: <input type="text" id="installmentAmount" placeholder="예: 89,220,000" onfocus="this.placeholder=''" onblur="this.placeholder='예: 89,220,000'" oninput="formatCurrency(this)" title=""></label>
+            <label>중도금 대출 이율(%): <input type="number" id="interestRate" placeholder="예: 4.50" onfocus="this.placeholder=''" onblur="this.placeholder='예: 4.50'" step="0.01" title=""></label>
+            <label>잔금일: <input type="date" id="repaymentDate" value="2027-12-15" title=""></label>
+            <button onclick="calculateLoan()">계산하기</button>
+        </div>
+        <table id="loanTable">
+            <thead>
+                <tr>
+                    <th>회차</th>
+                    <th>회차별 중도금</th>
+                    <th>납부일</th>
+                    <th>적용 일수</th>
+                    <th>총 이자</th>
+                    <th>대출 여부</th>
+                </tr>
+            </thead>
+            <tbody id="loanTableBody">
+                <tr>
+                    <td>1</td>
+                    <td>0원</td>
+                    <td><input type="date" value="2024-11-15" onchange="updateDays(this)" title=""></td>
+                    <td>1125</td>
+                    <td>0원</td>
+                    <td><span class="loan-status O" onclick="toggleLoanStatus(this)">O</span></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>0원</td>
+                    <td><input type="date" value="2025-05-15" onchange="updateDays(this)" title=""></td>
+                    <td>944</td>
+                    <td>0원</td>
+                    <td><span class="loan-status O" onclick="toggleLoanStatus(this)">O</span></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>0원</td>
+                    <td><input type="date" value="2025-11-15" onchange="updateDays(this)" title=""></td>
+                    <td>760</td>
+                    <td>0원</td>
+                    <td><span class="loan-status O" onclick="toggleLoanStatus(this)">O</span></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>0원</td>
+                    <td><input type="date" value="2026-05-15" onchange="updateDays(this)" title=""></td>
+                    <td>579</td>
+                    <td>0원</td>
+                    <td><span class="loan-status O" onclick="toggleLoanStatus(this)">O</span></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>0원</td>
+                    <td><input type="date" value="2026-11-15" onchange="updateDays(this)" title=""></td>
+                    <td>395</td>
+                    <td>0원</td>
+                    <td><span class="loan-status O" onclick="toggleLoanStatus(this)">O</span></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>0원</td>
+                    <td><input type="date" value="2027-05-15" onchange="updateDays(this)" title=""></td>
+                    <td>214</td>
+                    <td>0원</td>
+                    <td><span class="loan-status O" onclick="toggleLoanStatus(this)">O</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="summary">
+            <p>회차별 중도금 합계: <span id="totalInstallment">0원</span></p>
+            <p>총 이자 합계: <span id="totalInterest">0원</span></p>
+            <p>이자 절감액: <span id="interestSavings">0원</span></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
